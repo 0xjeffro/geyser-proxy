@@ -1,0 +1,63 @@
+# Yellowstone gRPC Proxy Configuration
+
+# Commitment level: "processed", "confirmed", or "finalized"
+commitment = "processed"
+
+[grpc]
+# gRPC service endpoint
+endpoint = "http://127.0.0.1:10000"
+
+# Optional: Path to CA certificate file
+# ca_certificate = "/path/to/ca.pem"
+
+# Optional: Authentication token
+# x_token = "your-auth-token"
+
+# Optional: Connection timeout in milliseconds
+# connect_timeout_ms = 5000
+
+# Optional: Tower service buffer size (default: 1024)
+# buffer_size = 1024
+
+# Optional: HTTP2 adaptive window
+# http2_adaptive_window = true
+
+# Optional: HTTP2 keep alive interval in milliseconds
+# http2_keep_alive_interval_ms = 30000
+
+# Optional: HTTP2 connection window size (default: 65535)
+# initial_connection_window_size = 65535
+
+# Optional: HTTP2 stream window size (default: 65535)
+# initial_stream_window_size = 65535
+
+# Optional: HTTP2 keep alive timeout in milliseconds
+# keep_alive_timeout_ms = 5000
+
+# Optional: HTTP2 keep alive while idle
+# keep_alive_while_idle = true
+
+# Optional: TCP keepalive interval in milliseconds
+# tcp_keepalive_ms = 7200000
+
+# Optional: TCP nodelay (default: true)
+# tcp_nodelay = true
+
+# Optional: Request timeout in milliseconds
+# timeout_ms = 30000
+
+# Optional: Max decoding message size in bytes (default: 1GiB)
+# max_decoding_message_size = 1073741824
+
+# Account to endpoint proxy mappings
+[proxy_map.EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v]
+endpoints = ["http://usdc-primary.com:10000", "http://usdc-backup.com:10000"]
+description = "USDC token endpoints with primary and backup"
+
+[proxy_map.So11111111111111111111111111111111111111112]
+endpoints = ["http://sol1.com:10000", "http://sol2.com:10000", "http://sol3.com:10000"]
+description = "SOL native token multiple endpoints for load balancing"
+
+[proxy_map.Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB]
+endpoints = ["http://usdt-endpoint.com:10000"]
+description = "USDT token single endpoint"
